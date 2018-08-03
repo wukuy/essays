@@ -5,6 +5,7 @@
 >以上都是废话，主要还是为了学习node。
 
 ### 项目结构
+```
 
 ├── server		// 后台
 │   ├── app.js
@@ -20,8 +21,7 @@
 │   ├── components
 │   ├── main.js
 │   └── router
-├── static
-
+```
 ### 技术栈
 后台: `node` +  `mogodb` + `express`
 前端: `vue.js` + `less` + `iView`
@@ -45,5 +45,8 @@ npm i
 npm run dev
 ```
 
-# 项目部署
+### 项目部署
 xx
+
+### 线上地址
+http://www.wukuy.cn
