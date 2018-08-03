@@ -4,6 +4,9 @@
 >所以自己撸个'简书'要什么功能有什么功能。
 >以上都是废话，主要还是为了学习node。
 
+### 线上地址
+http://www.wukuy.cn
+
 ### 项目结构
 ```
 
@@ -22,6 +25,7 @@
 │   ├── main.js
 │   └── router
 ```
+
 ### 技术栈
 后台: `node` +  `mogodb` + `express`
 前端: `vue.js` + `less` + `iView`
@@ -41,12 +45,8 @@ npm run dev
 ```bash
 # 项目根目录
 npm i
-
 npm run dev
 ```
 
 ### 项目部署
 xx
-
-### 线上地址
-http://www.wukuy.cn
