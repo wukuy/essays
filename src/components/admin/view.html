@@ -1,0 +1,64 @@
+<div class="p-main">
+	<Row class="main">
+		<Col :span="5" class="items">
+		<Button long @click="goHome" class="p-back-home" shape="circle">返回首页</Button>
+		<Collapse class="p-add-corpus" v-model="collapse">
+			<Panel name="1">
+				<span class="p-text">新增文集</span>
+				<div slot="content">
+					<Input v-model="corpusStr" ref="corpusEle" placeholder="请输入文集名"></Input>
+					<p class="p-menu">
+						<Button type="ghost" @click="addCorpus">确定</Button>
+						<Button type="text" @click="collapse = '0'">取消</Button>
+					</p>
+				</div>
+			</Panel>
+		</Collapse>
+		<div class="p-list">
+			<Menu :active-name="article._id" v-for="(item, idx) in directory" :key="idx" @on-open-change="getContent(item._id)" @on-select="switchArticle">
+				<Submenu :name="idx">
+					<template slot="title">
+						<div class="p-item" @mouseenter="item.isShowMenu = true" @mouseleave="item.isShowMenu = false">
+							<Icon type="folder"></Icon>
+							<span>{{item.name}}</span>
+							<poptip placement="bottom-end" class="p-menu" transfer v-model="item.poptip">
+								<transition name="fade">
+									<div v-show="item.isShowMenu" @click.stop="showPoptip(item)">
+										<Icon type="android-settings"></Icon>
+									</div>
+								</transition>
+								<div slot="content" @click="hidePoptip(item)">
+									<ButtonGroup vertical class="p-poptip-menu">
+										<Button long size="large" type="ghost" icon="android-delete"　@click="delDirectory(item._id)">删除</Button>
+										<Button long size="large" type="ghost" icon="plus-circled" @click="newFile(item)">添加文章</Button>
+									</ButtonGroup>
+								</div>
+							</poptip>
+						</div>
+					</template>
+					<MenuItem v-for="(article, idx) in item.child" :name="article._id" :key="idx">
+						<div class="p-item" @mouseenter="article.isShowMenu = true" @mouseleave="article.isShowMenu = false">
+							<Icon type="document-text"></Icon>
+							<span>{{article.title}}</span>
+							<transition name="fade">
+								<div class="p-menu" v-show="article.isShowMenu">
+									<p class="p-add" @click.prevent.stop="delFile(article, item)">
+										<Icon type="android-delete"></Icon>
+									</p>
+								</div>
+							</transition>
+						</div>
+					</MenuItem>
+				</Submenu>
+			</Menu>
+		</div>
+		</Col>
+		<Col :span="19" class="content">
+		<Input v-model="article.title" class="p-article" placeholder="请输入标题" size="large" style="height: 60px" @on-change="updateContent"></Input>
+		<mavon-editor :toolbars="toolbars" :editable="!!article._id" class="p-md" v-model="article.content" @change="updateContent" @save="save" />
+	</Col>
+	</Row>
+	<!-- <div class="foot">
+            湘ICP备18002634号
+        </div> -->
+</div>

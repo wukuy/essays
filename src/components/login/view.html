@@ -1,0 +1,41 @@
+<div class="p-login">
+    <div class="p-login-box">
+        <Tabs value="name1">
+            <TabPane label="登录" name="name1">
+                <Form ref="formInline" :model="formInline" :rules="ruleInline">
+                    <FormItem prop="user">
+                        <Input size="large" type="text" v-model="formInline.user" placeholder="请输入账号">
+                        <Icon size="18" type="ios-person-outline" slot="prepend"></Icon>
+                        </Input>
+                    </FormItem>
+                    <FormItem prop="password">
+                        <Input size="large" type="password" v-model="formInline.password" placeholder="请输入密码">
+                        <Icon size="18" type="ios-locked-outline" slot="prepend"></Icon>
+                        </Input>
+                    </FormItem>
+                    <FormItem>
+                        <Button size="large" class="p-login-btn" type="primary" @click="handleSubmit('formInline')" long>登录</Button>
+                    </FormItem>
+                </Form>
+            </TabPane>
+            <TabPane label="注册" name="name2">
+                <Form ref="formInline" :model="formInline" :rules="ruleInline">
+                    <FormItem prop="user">
+                        <Input size="large" type="text" v-model="formInline.user" placeholder="请输入账号">
+                        <Icon size="18" type="ios-person-outline" slot="prepend"></Icon>
+                        </Input>
+                    </FormItem>
+                    <FormItem prop="password">
+                        <Input size="large" type="password" v-model="formInline.password" placeholder="请输入密码">
+                        <Icon size="18" type="ios-locked-outline" slot="prepend"></Icon>
+                        </Input>
+                    </FormItem>
+                    <FormItem>
+                        <Button size="large" class="p-login-btn" type="primary" @click="registerSubmit" long>注册</Button>
+                    </FormItem>
+                </Form>
+            </TabPane>
+        </Tabs>
+    </div>
+    <div id="particles-js"></div>
+</div>

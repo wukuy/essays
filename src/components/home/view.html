@@ -1,0 +1,49 @@
+<div class="p-home">
+		<c-top></c-top>
+        <Layout>
+            <Sider hide-trigger :style="{background: '#fff'}">
+                <Menu :active-name="activeName" @on-select="selectDirectory">
+                    <MenuGroup title="我的文集">
+                        <MenuItem :name="item._id" v-for="(item, idx) in directory" :key="idx">
+                        <Icon type="folder"></Icon>
+                        	{{item.name}}
+                        </MenuItem>
+                    </MenuGroup>
+                </Menu>
+            </Sider>
+            <Layout>
+                <Content :style="{padding: '20px 64px 64px', minHeight: '280px', background: '#fff'}">
+                    <ul class="p-anthology">
+                        <li v-for="(item, idx) in articles" :key="idx">
+                            <div class="p-info">
+                                <img class="p-head-pic" src="~@/assets/img/head_default.jpg" alt="">
+                                <span class="p-name">{{item.userName}}</span>
+								<span class="p-date">创建:{{formatDate(item.createDate)}}</span>
+								<span class="p-date">修改:{{formatDate(item.updateDate)}}</span>
+                            </div>
+                            <div class="p-content">
+								<div class="p-title">
+									<h3 @click="goRead(item)">{{item.title}}</h3>
+								</div>
+                                <div class="p-text" v-html="delHtmlTag(item.htmlContent)"></div>
+                            </div>
+                            <div class="p-menu">
+                                <span class="p-view">
+                                    <Icon type="eye"></Icon>
+                                    {{item.viewCount}}
+                                </span>
+                                <span class="p-comment">
+                                    <Icon type="ios-compose"></Icon>
+                                    {{item.commentCount}}
+                                </span>
+                                <span class="p-praise">
+                                    <Icon type="heart"></Icon>
+                                    {{item.collectCount}}
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </Content>
+            </Layout>
+        </Layout>
+</div>

@@ -1,0 +1,24 @@
+<div class="p-top">
+    <Layout>
+        <Header>
+            <div class="layout-logo" @click="goHome">随笔</div>
+            <div class="layout-nav">
+                <Button type="ghost" @click="goLogin" v-if="!user._id">登录</Button>
+				<Button type="primary" @click="goLogin" v-if="!user._id">注册</Button>
+				<Poptip placement="bottom-end" v-if="!!user._id" class="p-me">
+					<img :src="user.headPic" alt="我" class="p-head-pic">
+					<div slot="content">
+						<ButtonGroup vertical class="p-poptip-menu" size="large">
+							<Button long　type="ghost"  @click="goHome">我的首页</Button>
+							<Button long　type="ghost"  @click="goHome">收藏的文章</Button>
+							<Button long　type="ghost"  @click="goHome">喜欢的文章</Button>
+							<Button long　type="ghost"  @click="logout">退出登录</Button>
+						</ButtonGroup>
+					</div>
+				</Poptip>
+                <Button type="primary" @click="goEdit">写文章</Button>
+            </div>
+		</Header>
+		<router-view></router-view>
+    </Layout>
+</div>

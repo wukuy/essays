@@ -1,0 +1,83 @@
+.p-home {
+  height: 100%;
+  border: 1px solid #d7dde4;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  .p-anthology{
+	  background: #fff;
+	  padding-bottom: 88px;
+      li{
+          border-bottom: 1px solid #efefef;
+          padding: 20px 10px;
+          .p-info{
+                margin-bottom: 10px;
+                .p-head-pic{
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                }
+                .p-name{
+                    margin: 0 6px;
+                    color: #333;
+                }
+                .p-date{
+                    color: #999;
+                }
+                >*{
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+          }
+          .p-content{
+              .p-title{
+                  color: #333;
+                  line-height: 40px;
+				  height: 40px;
+				  h3{
+					  display: inline-block;
+					  &:hover{
+						text-decoration: underline;
+						cursor: pointer;
+					  }
+				  }
+			  }
+			.p-text{
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 3;
+				overflow: hidden;
+				line-height: 24px;
+				max-height: 90px;
+			}
+          }
+          .p-menu{
+                margin-top: 10px;
+                color: #999;
+                >*{
+                    margin-right: 8px;
+                }
+            }
+      }
+  }
+  .ivu-layout{
+	  height: 100%;
+	  background: #fff;
+  }
+  .ivu-menu {
+	background: #fff;
+	height: 100%;
+	.ivu-menu-item{
+		.ivu-menu-item-selected{
+			background: #f3f3f3;
+		}
+	}
+	>.ivu-menu-item-group{
+		height: calc(100% - 110px);
+		>ul{
+			height: 100%;
+			overflow-y: auto;
+		}
+	}
+  }
+}

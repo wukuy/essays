@@ -1,0 +1,20 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "db": "mongod --dbpath ./db --port 20018",
+    "dev": "supervisor app.js",
+    "start": "npm run db && npm run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "moment": "^2.22.1",
+    "mongoose": "^5.0.7",
+    "supervisor": "^0.12.0"
+  }
+}
